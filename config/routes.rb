@@ -2,6 +2,11 @@ Interviewr::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  resources :sessions
+  resources :code
+
+  match 'end' => 'sessions#destroy', :as => :end
+  match ':random' => 'sessions#show', :as => :current_session_path
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

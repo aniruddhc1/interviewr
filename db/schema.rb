@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408154558) do
+ActiveRecord::Schema.define(:version => 20130408160544) do
 
   create_table "codes", :force => true do |t|
     t.text     "code"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(:version => 20130408154558) do
 
   create_table "sessions", :force => true do |t|
     t.string   "random"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "interviewer"
+    t.string   "company"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

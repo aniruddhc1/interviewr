@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_session
-    @current_session ||= @session
+    @current_session ||= Session.find_by_random(session[:random]) if session[:random]
   end
   helper_method :current_session
 
