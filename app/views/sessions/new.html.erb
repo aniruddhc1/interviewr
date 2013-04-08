@@ -1,7 +1,10 @@
 <div id="settings">
-	<% if in_progress? %>
+	<% if interviewer? %>
 		You still have a session going on 
-		<%= link_to "here.", current_session.random %>
+		<%= link_to "here.", '/interview/'+current_viewer_session.random %>
+	<% elsif interviewee? %>
+		You still have a session going on 
+		<%= link_to "here.", '/interview/'+current_viewee_session.random %>
 	<% else %>
 		<h1>Welcome to Interviewr</h1>
 		<h2>Please enter the following</h2>

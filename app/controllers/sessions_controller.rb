@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		end
 		session[:random] = @session.random
 		@session.save
-		redirect_to(@session, :notice => 'The URL is interviewr.us/' + @session.random)
+		redirect_to('/interview/'+session[:random], :notice => 'The URL is interviewr.us/' + @session.random)
 	end
 
 	def show

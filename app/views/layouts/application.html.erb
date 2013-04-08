@@ -9,9 +9,12 @@
 <body>
 	<div id="container">
 		<div id="Session">
-      <% if in_progress? %>
+      <% if interviewer? %>
         <%= link_to 'End Session', end_path %>
-        <br>[<%= current_session.interviewer %>:<%= current_session.company %>]
+        <br>[<%= current_viewer_session.interviewer %>:<%= current_viewer_session.company %>]
+      <% elsif interviewee? %>
+        <%= link_to 'Done', done_path %>
+        <br>[<%= interviewer_name %>:<%= interviewer_co %>]
       <% end %>
 		</div>
     <% flash.each do |name, msg| %>
