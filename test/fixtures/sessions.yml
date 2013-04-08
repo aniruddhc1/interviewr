@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  random: MyString
+  interviewer: MyString
+  company: MyString
+
+two:
+  random: MyString
+  interviewer: MyString
+  company: MyString

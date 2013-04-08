@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Interviewr</title>
+  <title>interviewr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="container">
+		<div id="Session">
+      <% if in_progress? %>
+        <%= link_to 'End Session', end_path %>
+        <br>[<%= current_session.interviewer %>:<%= current_session.company %>]
+      <% end %>
+		</div>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
