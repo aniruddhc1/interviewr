@@ -1,1 +1,5 @@
-<%= @session.random%>
+<% if @session != nil %>
+	<%= @session.random%>
+<% else %>
+	You need to start an interview first!
+<% end %>
