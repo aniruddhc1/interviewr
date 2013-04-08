@@ -1,26 +1,39 @@
 class IntervieweeSessionsController < ApplicationController
+	def destroy
+		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
+		@interviewee_session.destroy if @interviewee_session != nil
+		session[:viewee_random] = nil
+	end
+
 	def create
+		if (session[:random] != nil)
+			redirect_to('/interviewer', :notice => 'You are already hosting an interview.')
+			return
+		end
+
+		random = params[:random]
+		destroy
 		@interviewee_session = IntervieweeSession.new
-		@interviewee_session.random = params[:random]
-		session[:viewee_random] = @interviewee_session.random
+		@interviewee_session.random = random
 		if @interviewee_session.save
-			redirect_to('/interview/'+session[:viewee_random])
+			session[:viewee_random] = random
+			redirect_to('/interviewee')
 		else
-			params[:random] = nil
-			session[:viewee_random] = nil
-      		redirect_to(new_session_path)
+			if (Session.find_by_random(random) == nil)
+				redirect_to('/no_session')
+			else
+      			redirect_to('/busy')
+      		end
 		end
 
 	end
 
 	def show
-		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
-	end
-
-	def destroy
-		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
-		session[:viewee_random] = nil
-		@interviewee_session.destroy
-		redirect_to(new_session_path)
+		if (Session.find_by_random(session[:viewee_random]) == nil)
+			destroy
+			redirect_to('/disconnected')
+		else
+			@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
+		end
 	end
 end

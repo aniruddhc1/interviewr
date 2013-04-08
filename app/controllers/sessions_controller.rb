@@ -3,6 +3,11 @@ class SessionsController < ApplicationController
 		@session = Session.new
 	end
 	def create
+		if (session[:viewee_random] != nil)
+			redirect_to('/interviewee', :notice => 'You are already participating in an interview.')
+			return
+		end
+
 		@session = Session.new(params[:session])
 		@session.random = generate_id
 		if (Session.find_by_random(@session.random) != nil)
@@ -10,7 +15,7 @@ class SessionsController < ApplicationController
 		end
 		session[:random] = @session.random
 		@session.save
-		redirect_to('/interview/'+session[:random], :notice => 'The URL is interviewr.us/' + @session.random)
+		redirect_to('/interviewer', :notice => 'The URL is interviewr.us/' + @session.random)
 	end
 
 	def show

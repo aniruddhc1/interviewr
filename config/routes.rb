@@ -7,8 +7,15 @@ Interviewr::Application.routes.draw do
 
   match 'end' => 'sessions#destroy', :as => :end
   match 'done' => 'interviewee_sessions#destroy', :as => :done
+  match 'interviewer' => 'sessions#show', :as => :current_session
+  match 'interviewee' => 'interviewee_sessions#show'
+  match 'busy' => 'static#busy', :as => :busy
+  match 'no_session' => 'static#no_session', :as => :no_session
+  match 'disconnected' => 'static#disconnected', :as => :disconnected
   match ':random' => 'interviewee_sessions#create', :as => :new_interviewee_session
-  match 'interview/:random' => 'sessions#show', :as => :current_session
+
+
+  root :to => 'sessions#new'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
