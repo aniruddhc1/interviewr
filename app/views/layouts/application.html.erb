@@ -7,20 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-		<div id="Session">
-      <% if interviewer? %>
-        <%= link_to 'End Session', end_path %>
-        <br>[<%= current_viewer_session.interviewer %>:<%= current_viewer_session.company %>]
-      <% elsif interviewee? %>
-        <%= link_to 'Done', done_path %>
-        <br>[<%= interviewer_name %>:<%= interviewer_co %>]
-      <% end %>
+
+<% if interviewer? or interviewee? %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="brand">interviewr</div>
+      <ul class="nav">
+        <% if interviewer? %>
+          <li><%= link_to 'End Session', end_path %></li>
+          <li class = "brand"><%= current_viewer_session.interviewer %></li>
+          <li class = "brand"><%= current_viewer_session.company %></li>
+        <% elsif interviewee? %>
+          <li><%= link_to 'Done', done_path %></li>
+          <li class = "brand"><%= interviewer_name %></li>
+          <li class = "brand"><%= interviewer_co %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
+
+	<div id="container" class ="container">
+		<div id="Session" class="row">
 		</div>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
-    <%= yield %>
+    <div class="span-12">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

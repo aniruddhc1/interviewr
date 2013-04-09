@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 		@session = Session.new
 	end
 	def create
-		if (session[:viewee_random] != nil)
+		if (cookies[:viewee_random] != nil)
 			redirect_to('/interviewee', :notice => 'You are already participating in an interview.')
 			return
 		end
@@ -13,18 +13,18 @@ class SessionsController < ApplicationController
 		if (Session.find_by_random(@session.random) != nil)
 			@session.random = generate_id
 		end
-		session[:random] = @session.random
+		cookies[:random] = @session.random
 		@session.save
 		redirect_to('/interviewer', :notice => 'The URL is interviewr.us/' + @session.random)
 	end
 
 	def show
-		@session = Session.find_by_random(session[:random])
+		@session = Session.find_by_random(cookies[:random])
 	end
 
 	def destroy
-		@session = Session.find_by_random(session[:random])
-		session[:random] = nil
+		@session = Session.find_by_random(cookies[:random])
+		cookies[:random] = nil
 		@session.destroy
 	end
 

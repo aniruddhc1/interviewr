@@ -1,13 +1,16 @@
-<div id="settings">
-	<% if interviewer? %>
-		You still have a session going on 
-		<%= link_to "here.", '/interviewer' %>
-	<% elsif interviewee? %>
-		You still have a session going on 
-		<%= link_to "here.", '/interviewee' %>
-	<% else %>
-		<h1>Welcome to Interviewr</h1>
-		<h2>Please enter the following</h2>
-		<%= render 'form' %>
-	<% end %>
+<% if interviewer? %>
+	You still have a session going on 
+	<%= link_to "here.", '/interviewer' %>
+<% elsif interviewee? %>
+	You still have a session going on 
+	<%= link_to "here.", '/interviewee' %>
+<% else %>
+<div id="settings-container">
+	<div id="settings">
+
+			<h1>Welcome to Interviewr</h1>
+			<h2>Please enter the following</h2>
+			<%= render 'form' %>
+	</div>
 </div>
+<% end %>

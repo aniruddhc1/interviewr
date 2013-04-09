@@ -11,3 +11,90 @@
  *= require_self
  *= require_tree .
  */
+
+ #settings{
+	width:525px;
+	height:250px;
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	background-color: #99CCFF;
+	text-align:center;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+-webkit-box-shadow: 7px 7px 30px rgba(50, 50, 148, 0.75);
+-moz-box-shadow:    7px 7px 30px rgba(50, 50, 148, 0.75);
+box-shadow:         7px 7px 30px rgba(50, 50, 148, 0.75);
+ }
+
+ #settings-container{
+ 	position: absolute;
+	top: 50%;
+	margin-top: -125px;/* half of #content height*/
+ 	left: 0;
+	width: 100%;
+ }
+
+.simple_form div.input {
+  margin-bottom: 10px;
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+
+.simple_form label {
+  float: left;
+  width: 100px;
+  text-align: left;
+}
+
+div.boolean, .simple_form input[type='submit'] {
+  margin-left: 120px;
+}
+
+div.boolean label, label.collection_radio_buttons {
+  float: none;
+  margin: 0;
+}
+
+label.collection_radio_buttons {
+  margin-right: 10px;
+  vertical-align: -2px;
+  margin-left: 2px;
+}
+
+.field_with_errors {
+  background-color: #ff3333;
+}
+
+.simple_form .error {
+  clear: left;
+  color: black;
+  display: block;
+  margin-left: 120px;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+
+input.radio {
+  margin-right: 5px;
+  vertical-align: -3px;
+}
+
+input.check_boxes {
+  margin-left: 3px;
+  vertical-align: -3px;
+}
+
+label.collection_check_boxes {
+  float: none;
+  margin: 0;
+  vertical-align: -2px;
+  margin-left: 2px;
+}
