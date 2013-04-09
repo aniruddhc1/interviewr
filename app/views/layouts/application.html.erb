@@ -13,17 +13,20 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="brand">interviewr</div>
-      <ul class="nav">
         <% if interviewer? %>
-          <li><%= link_to 'End Session', end_path %></li>
-          <li class = "brand"><%= current_viewer_session.interviewer %></li>
-          <li class = "brand"><%= current_viewer_session.company %></li>
+          <div class="navbar-text pull-right end"><%= link_to 'End Session', end_path, :class => "btn btn-mini"%></div>
+          <div class="notices pull-right">
+            <p class="navbar-text"><%= current_viewer_session.interviewer %></p>
+            <p class="navbar-text"><%= current_viewer_session.company %></p>
+          </div>
         <% elsif interviewee? %>
-          <li><%= link_to 'Done', done_path %></li>
-          <li class = "brand"><%= interviewer_name %></li>
-          <li class = "brand"><%= interviewer_co %></li>
+        <div class="navbar-text pull-right end"><%= link_to 'Done', done_path, :class => "btn btn-mini"%></div>
+        <div class="notices pull-right">
+          <p class="navbar-text"><%= interviewer_name %></p>
+          <p class="navbar-text"><%= interviewer_co %></p>
+        </div>
           <% end %>
-      </ul>
+      
     </div>
   </div>
 </div>
