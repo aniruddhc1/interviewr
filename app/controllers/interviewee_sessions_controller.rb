@@ -40,7 +40,7 @@ class IntervieweeSessionsController < ApplicationController
 			redirect_to('/disconnected')
 		else
 			config_opentok
-			#@token = @opentok.generate_token :session_id => @interviewee_session.room.openTokID
+			@token = @opentok.generate_token :session_id => @interviewee_session.room.openTokID
 			@interviewee_session = IntervieweeSession.find_by_random(cookies[:viewee_random])
 		end
 	end
