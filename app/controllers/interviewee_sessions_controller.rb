@@ -15,7 +15,13 @@ class IntervieweeSessionsController < ApplicationController
 		destroy
 		@interviewee_session = IntervieweeSession.new
 		@interviewee_session.random = random
+
 		if @interviewee_session.save
+			r = Room.find_by_name(@interviewee_session.random)
+			r.interviewee_session_id = @interviewee_session.id
+			r.save
+			config_opentok
+
 			cookies[:viewee_random] = random
 			redirect_to('/interviewee')
 		else
@@ -33,6 +39,8 @@ class IntervieweeSessionsController < ApplicationController
 			destroy
 			redirect_to('/disconnected')
 		else
+			config_opentok
+			#@token = @opentok.generate_token :session_id => @interviewee_session.room.openTokID
 			@interviewee_session = IntervieweeSession.find_by_random(cookies[:viewee_random])
 		end
 	end

@@ -1,5 +1,6 @@
 class IntervieweeSession < ActiveRecord::Base
   attr_accessible :random
+  has_one :room
   validate :session_is_in_system
   validates_uniqueness_of :random
   #Validate the uniqueness of random and validate that random exists in sessions table

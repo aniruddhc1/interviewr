@@ -14,12 +14,24 @@ class SessionsController < ApplicationController
 			@session.random = generate_id
 		end
 		cookies[:random] = @session.random
+		config_opentok
+
+		@new_room = Room.new
+		@location = "localhost" #CHANGE THIS WHEN DEPLOYED!!
+		session_properties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}    # or disabled
+		session = @opentok.create_session( @location, session_properties )
+		@new_room.openTokID = session.session_id
+		@new_room.name = @session.random
 		@session.save
+		@new_room.session_id = @session.id
+		@new_room.save
 		redirect_to('/interviewer', :notice => 'The URL is interviewr.us/' + @session.random)
 	end
 
 	def show
 		@session = Session.find_by_random(cookies[:random])
+		config_opentok
+		@token = @opentok.generate_token :session_id => @session.room.openTokID
 	end
 
 	def destroy
@@ -37,4 +49,5 @@ class SessionsController < ApplicationController
 		end
 		return s
 	end
+
 end

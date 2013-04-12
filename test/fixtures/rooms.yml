@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  openTokID: MyString
+  session_id: 1
+  interviewee_session_id: 1
+
+two:
+  name: MyString
+  openTokID: MyString
+  session_id: 1
+  interviewee_session_id: 1

@@ -1,6 +1,5 @@
 <% if @session != nil %>
 	<%= @session.random%>
-    <%=render :partial => "video"%>
 <% else %>
 	You need to start an interview first!
 <% end %>

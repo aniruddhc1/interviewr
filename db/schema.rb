@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130408160545) do
+ActiveRecord::Schema.define(:version => 20130412212609) do
 
   create_table "codes", :force => true do |t|
     t.text     "code"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20130408160545) do
     t.string   "random"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.string   "openTokID"
+    t.integer  "session_id"
+    t.integer  "interviewee_session_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "sessions", :force => true do |t|
