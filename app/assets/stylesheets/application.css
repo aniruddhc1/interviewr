@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree .
  */
-
  #settings{
 	width:525px;
 	height:250px;

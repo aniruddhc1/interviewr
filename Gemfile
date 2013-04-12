@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'simple_form'
 gem 'better_errors', '0.7.0'
+gem 'opentok'
 
 
 # Gems used only for assets and not required

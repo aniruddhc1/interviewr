@@ -3,7 +3,6 @@ Interviewr::Application.routes.draw do
   # first created -> highest priority.
 
   resources :sessions
-  resources :code
 
   match 'end' => 'sessions#destroy', :as => :end
   match 'done' => 'interviewee_sessions#destroy', :as => :done
@@ -13,6 +12,8 @@ Interviewr::Application.routes.draw do
   match 'no_session' => 'static#no_session', :as => :no_session
   match 'disconnected' => 'static#disconnected', :as => :disconnected
   match ':random' => 'interviewee_sessions#create', :as => :new_interviewee_session
+  match 'sessions' => 'static#no_session'
+  match 'sessions/:foo' => 'static#no_session'
 
 
   root :to => 'sessions#new'
