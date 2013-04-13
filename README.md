@@ -1,5 +1,1 @@
-From Aniruddh's mac
-
-From Soumya's mac
-
-Annnnd, from my Ubuntu VM. We're all set
+interviewr is designed to be an online interviewing tool for software engineering jobs. When the interviewer visits the website, he is presented with a screen, prompting him for some basic information. Once he enters it, he is provided a URL to send to the interviewee. Once the interviewee clicks on the link, the two of them are able to video chat, collaboratively edit code, and send snippets of text to each other via a chatbox. When they are done, they can choose to save their code to their computer or Dropbox. interviewr is currently in development. It is being written using Ruby on Rails, and several APIs for services such as OpenTok and Firebase. It is a group project for 15-221, Technical Communication for Computer Scientists.
