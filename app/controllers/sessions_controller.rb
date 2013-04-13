@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 		config_opentok
 
 		@new_room = Room.new
-		@location = "localhost" #CHANGE THIS WHEN DEPLOYED!!
+		@location = "http://boiling-plateau-8508.herokuapp.com/" #CHANGE THIS WHEN DEPLOYED!!
 		session_properties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}    # or disabled
 		session = @opentok.create_session( @location, session_properties )
 		@new_room.openTokID = session.session_id
