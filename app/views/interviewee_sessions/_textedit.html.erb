@@ -3,7 +3,7 @@
   <script>
     //// Initialize Firebase.
     // var firepadRef = new Firebase('<YOUR FIREBASE URL>');
-    var firepadRef = new Firebase("http://interviewr.firebaseio.com/<%= @interviewee_sessions.random + "firepad"%>");
+    var firepadRef = new Firebase("http://interviewr.firebaseio.com/<%= @interviewee_session.random + "firepad"%>");
 
     //// Create CodeMirror (with lineWrapping on).
     var codeMirror = CodeMirror(document.getElementById('firepad'), { 
