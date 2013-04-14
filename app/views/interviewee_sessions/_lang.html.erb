@@ -1,17 +1,13 @@
-<form name = "langDrop" id = "langDrop" action = "javascript:changeLang()">
-
-  <select name="Language">
-    <option value = "clike">C/C++</option>
-    <option value = 'python'>Python</option>
-    <option value = "javascript">JavaScript</option>
-  </select>  
-
-</form>
+<select name="Language" id="langDrop">
+  <option value = "clike">C/C++</option>
+  <option value = 'python'>Python</option>
+  <option value = "javascript">JavaScript</option>
+</select>  
 
 <script>
-    var langRef = new Firebase("https://interviewr.firebaseio.com/<%= @interviewee_session.random + 'lang'%>");
+  var langRef = new Firebase("https://interviewr.firebaseio.com/<%= @interviewee_session.random + 'lang'%>");
 
-  $("#langDrop").onchange (function () {
+  $("#langDrop").change (function () {
     var newSyntax = $("#langDrop option:selected").val();
     langRef.set({"lang": newSyntax});
   });
@@ -19,7 +15,8 @@
   langRef.on('value', function(snapshot)  {
     if (snapshot.val() !== null)
     {
-      alert(snapshot.lang());
+      $("#langDrop").val(snapshot.val().lang);
+      codeMirror.setOption("mode", $("#langDrop").val());
     }
   });
 </script>

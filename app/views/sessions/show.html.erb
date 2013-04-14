@@ -1,7 +1,9 @@
 <% if @session != nil %>
 	<%= @session.random%>
     <%=render :partial => "video"%>
-    <%=render :partial=>"chat" %>
+    <div id="chat">
+        <%=render :partial=>"chat" %>
+    </div>
     <%=render :partial => "textedit"%>
     <%=render :partial => "lang"%>
 <% else %>
