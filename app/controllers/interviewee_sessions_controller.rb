@@ -12,7 +12,6 @@ class IntervieweeSessionsController < ApplicationController
 		end
 
 		random = params[:random]
-		destroy
 		@interviewee_session = IntervieweeSession.new
 		@interviewee_session.random = random
 
