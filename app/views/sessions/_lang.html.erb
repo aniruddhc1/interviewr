@@ -9,7 +9,11 @@
 </form>
 
 <script>
+    var langRef = new Firebase("https://interviewr.firebaseio.com/<%= @session.random + 'lang'%>");
+    langRef.push();
+
   $("#langDrop").onchange (function () {
-    alert($("#langDrop option:selected").val());
+    var newSyntax = $("#langDrop option:selected").val();
+    langRef.set({"lang": newSyntax});
   });
 </script>
