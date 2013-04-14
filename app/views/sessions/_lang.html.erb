@@ -16,4 +16,11 @@
     var newSyntax = $("#langDrop option:selected").val();
     langRef.set({"lang": newSyntax});
   });
+
+  langRef.on('value', function(snapshot)  {
+    if (snapshot.val() !== null)
+    {
+      alert(snapshot.lang());
+    }
+  });
 </script>
