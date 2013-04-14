@@ -8,6 +8,16 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+#publisher_1{
+  border-right: 1px dotted #e0ffff;
+  border-bottom: 1px dotted #e0ffff;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  margin-left: 800px;
+  margin-top: 10px;
+
+}
+
 .clearfix {
   *zoom: 1;
 }

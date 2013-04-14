@@ -102,3 +102,9 @@ label.collection_check_boxes {
   margin-left:10px;
   margin-top:-3px;
 }
+
+#messagesDiv{
+  height : 50px;
+  overflow-y : auto;
+
+}
