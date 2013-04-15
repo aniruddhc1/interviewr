@@ -1,12 +1,12 @@
 class IntervieweeSessionsController < ApplicationController
 	def destroy
-		@interviewee_session = IntervieweeSession.find_by_random(cookies[:viewee_random])
+		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
 		@interviewee_session.destroy if @interviewee_session != nil
-		cookies[:viewee_random] = nil
+		session[:viewee_random] = nil
 	end
 
 	def create
-		if (cookies[:random] != nil)
+		if (session[:random] != nil)
 			redirect_to('/interviewer', :notice => 'You are already hosting an interview.')
 			return
 		end
@@ -20,7 +20,7 @@ class IntervieweeSessionsController < ApplicationController
 			r.interviewee_session_id = @interviewee_session.id
 			r.save
 
-			cookies[:viewee_random] = random
+			session[:viewee_random] = random
 			redirect_to('/interviewee')
 		else
 			if (Session.find_by_random(random) == nil)
@@ -33,12 +33,12 @@ class IntervieweeSessionsController < ApplicationController
 	end
 
 	def show
-		if (Session.find_by_random(cookies[:viewee_random]) == nil)
+		if (Session.find_by_random(session[:viewee_random]) == nil)
 			destroy
 			redirect_to('/disconnected')
 		else
 			config_opentok
-			@interviewee_session = IntervieweeSession.find_by_random(cookies[:viewee_random])
+			@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
 			@token = @opentok.generate_token :session_id => @interviewee_session.room.openTokID
 		end
 	end

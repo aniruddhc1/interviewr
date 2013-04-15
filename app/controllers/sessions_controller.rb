@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 		@session = Session.new
 	end
 	def create
-		if (cookies[:viewee_random] != nil)
+		if (session[:viewee_random] != nil)
 			redirect_to('/interviewee', :notice => 'You are already participating in an interview.')
 			return
 		end
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 		if (Session.find_by_random(@session.random) != nil)
 			@session.random = generate_id
 		end
-		cookies[:random] = @session.random
+		session[:random] = @session.random
 		config_opentok
 
 		@new_room = Room.new
@@ -29,14 +29,14 @@ class SessionsController < ApplicationController
 	end
 
 	def show
-		@session = Session.find_by_random(cookies[:random])
+		@session = Session.find_by_random(session[:random])
 		config_opentok
 		@token = @opentok.generate_token :session_id => @session.room.openTokID
 	end
 
 	def destroy
-		@session = Session.find_by_random(cookies[:random])
-		cookies[:random] = nil
+		@session = Session.find_by_random(session[:random])
+		session[:random] = nil
 		@session.destroy
 	end
 

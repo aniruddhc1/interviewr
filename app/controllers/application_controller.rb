@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
 
   private
   def current_viewer_session
-    @current_viewer_session ||= Session.find_by_random(cookies[:random]) if cookies[:random]
+    @current_viewer_session ||= Session.find_by_random(session[:random]) if session[:random]
   end
   helper_method :current_viewer_session
 
   def current_viewee_session
-    @current_viewee_session ||= Session.find_by_random(cookies[:viewee_random]) if cookies[:viewee_random]
+    @current_viewee_session ||= Session.find_by_random(session[:viewee_random]) if session[:viewee_random]
   end
   helper_method :current_viewee_session
 
@@ -32,12 +32,12 @@ class ApplicationController < ActionController::Base
   helper_method :interviewee?
 
   def interviewer_name
-    @interviewer_name ||= Session.find_by_random(cookies[:viewee_random]).interviewer if cookies[:viewee_random]
+    @interviewer_name ||= Session.find_by_random(session[:viewee_random]).interviewer if session[:viewee_random]
   end
   helper_method :interviewer_name
 
   def interviewer_co
-    @interviewer_co ||= Session.find_by_random(cookies[:viewee_random]).company if cookies[:viewee_random]
+    @interviewer_co ||= Session.find_by_random(session[:viewee_random]).company if session[:viewee_random]
   end
   helper_method :interviewer_co
 
