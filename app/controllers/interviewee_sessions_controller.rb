@@ -6,10 +6,13 @@ class IntervieweeSessionsController < ApplicationController
 	end
 
 	def create
-		IntervieweeSession.find_by_random(session[:viewee_random]).destroy if (session[:viewee_random] != nil)
-		Session.find_by_random(session[:random]).destroy if (session[:random] != nil)
+		isession = IntervieweeSession.find_by_random(session[:viewee_random])
+		isession.destroy if (isession != nil)
+		session = Session.find_by_random(session[:random])
+		session.destroy if (session != nil)
 		session[:random] = nil
 		session[:viewee_random] = nil
+
 
 		random = params[:random]
 		@interviewee_session = IntervieweeSession.new
