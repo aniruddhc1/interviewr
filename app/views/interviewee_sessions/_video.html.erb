@@ -1,6 +1,7 @@
         <div class="container-fluid">
         <div class="row-fluid">
-        <div id="myPublisherDiv" class="span12"> </div>
+        <div id="myPublisherDiv"> </div>
+        <div id="otherUser"></div>
 
         <script type="text/javascript">
           // Initialize API key, session, and token...
@@ -38,13 +39,8 @@ function subscribeToStreams(streams) {
       return;
     }
 
-    // Create the div to put the subscriber element in to
-    var div = document.createElement('div');
-    div.setAttribute('id', 'stream' + streams[i].streamId);
-    document.body.appendChild(div);
-
     // Subscribe to the stream
-    session.subscribe(streams[i], div.id);
+    session.subscribe(streams[i], "otherUser");
   }
 }
 </script>
