@@ -1,10 +1,10 @@
 <%= @interviewee_session.random %>
 <%= @interviewee_session.room.name %>
-<div class="row">
-    <div class="span-two-thirds">
+<div class="row-fluid">
+    <div class="span4">
         <%= render :partial=>"textedit" %>
     </div>
-    <div class="span-one-third">
+    <div class="span8">
         <%= render :partial=>"video" %>
         <%= render :partial=>"lang" %>
         <%= render :partial=>"chat" %>
