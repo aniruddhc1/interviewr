@@ -6,7 +6,7 @@ class IntervieweeSession < ActiveRecord::Base
   #Validate the uniqueness of random and validate that random exists in IntervieweeSessions table
 
   def room
-    Room.find_by_interviewee_id(self.id)
+    Room.find_by_interviewee_session_id(self.id)
   end
 
   private
