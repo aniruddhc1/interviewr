@@ -1,11 +1,14 @@
 <% if @session != nil %>
-	<%= @session.random%>
-    <%=render :partial => "video"%>
-    <div id="chat">
-        <%=render :partial=>"chat" %>
+    <div class="row-fluid">
+        <div class="span8">
+            <%= render :partial=>"textedit" %>
+        </div>
+        <div class="span4">
+            <%= render :partial=>"video" %><br />
+            <%= render :partial=>"lang" %><br />
+            <%= render :partial=>"chat" %><br />
+        </div>
     </div>
-    <%=render :partial => "textedit"%>
-    <%=render :partial => "lang"%>
 <% else %>
 	You need to start an interview first!
 <% end %>

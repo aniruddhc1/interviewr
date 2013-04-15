@@ -104,7 +104,9 @@ label.collection_check_boxes {
 }
 
 #messagesDiv{
-  height : 50px;
+  height : 200px;
+
+  border:5px solid red;
   overflow-y : auto;
 
 }

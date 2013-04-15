@@ -1,8 +1,12 @@
 <%= @interviewee_session.random %>
 <%= @interviewee_session.room.name %>
-<%= render :partial=>"video" %>
-<div id="chat">
-<%= render :partial=>"chat" %>
+<div class="row">
+    <div class="span-two-thirds">
+        <%= render :partial=>"textedit" %>
+    </div>
+    <div class="span-one-third">
+        <%= render :partial=>"video" %>
+        <%= render :partial=>"lang" %>
+        <%= render :partial=>"chat" %>
+    </div>
 </div>
-<%= render :partial=>"textedit" %>
-<%= render :partial=>"lang" %>
