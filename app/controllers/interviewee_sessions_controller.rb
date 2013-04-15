@@ -6,10 +6,10 @@ class IntervieweeSessionsController < ApplicationController
 	end
 
 	def create
-		if (session[:random] != nil)
-			redirect_to('/interviewer', :notice => 'You are already hosting an interview.')
-			return
-		end
+		IntervieweeSession.find_by_random(session[:viewee_random]).destroy if (session[:viewee_random] != nil)
+		Session.find_by_random(session[:random]).destroy if (session[:random] != nil)
+		session[:random] = nil
+		session[:viewee_random] = nil
 
 		random = params[:random]
 		@interviewee_session = IntervieweeSession.new
