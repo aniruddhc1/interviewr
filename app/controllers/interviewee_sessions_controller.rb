@@ -36,7 +36,7 @@ class IntervieweeSessionsController < ApplicationController
 
 	def show
 		if (Session.find_by_random(session[:viewee_random]) == nil)
-			destroy
+			IntervieweeSession.find_by_random(session[:viewee_random]).destroy
 			redirect_to('/disconnected')
 		else
 			config_opentok
