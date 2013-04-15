@@ -16,11 +16,10 @@ class IntervieweeSessionsController < ApplicationController
 		@interviewee_session.random = random
 
 		if @interviewee_session.save
+			session[:viewee_random] = random
 			r = Room.find_by_name(@interviewee_session.random)
 			r.interviewee_session_id = @interviewee_session.id
 			r.save
-
-			session[:viewee_random] = random
 			redirect_to('/interviewee')
 		else
 			if (Session.find_by_random(random) == nil)
