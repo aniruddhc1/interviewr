@@ -3,18 +3,10 @@ class SessionsController < ApplicationController
 		@session = Session.new
 	end
 	def create
-		if (session.has_key?(:viewee_random))
-			isession = IntervieweeSession.find_by_random(session[:viewee_random])
-			isession.destroy if (isession != nil)
-			session[:viewee_random] = nil
+		if (session[:viewee_random] != nil)
+			redirect_to('/interviewee', :notice => 'You are already participating in an interview.')
+			return
 		end
-		if (session.has_key?(:random))
-			osession = Session.find_by_random(session[:random])
-			osession.destroy if (session != nil)
-			session[:random] = nil
-		end
-
-
 
 		@session = Session.new(params[:session])
 		@session.random = generate_id

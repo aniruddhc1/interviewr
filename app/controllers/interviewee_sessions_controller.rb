@@ -6,17 +6,10 @@ class IntervieweeSessionsController < ApplicationController
 	end
 
 	def create
-		if (session.has_key?(:viewee_random))
-			isession = IntervieweeSession.find_by_random(session[:viewee_random])
-			isession.destroy if (isession != nil)
-			session[:viewee_random] = nil
+		if (session[:random] != nil)
+			redirect_to('/interviewer', :notice => 'You are already hosting an interview.')
+			return
 		end
-		if (session.has_key?(:random))
-			osession = Session.find_by_random(session[:random])
-			osession.destroy if (session != nil)
-			session[:random] = nil
-		end
-
 
 		random = params[:random]
 		@interviewee_session = IntervieweeSession.new
@@ -29,6 +22,7 @@ class IntervieweeSessionsController < ApplicationController
 			r.save
 			redirect_to('/interviewee')
 		else
+			destroy
 			if (Session.find_by_random(random) == nil)
 				redirect_to('/no_session')
 			else
@@ -40,7 +34,7 @@ class IntervieweeSessionsController < ApplicationController
 
 	def show
 		if (Session.find_by_random(session[:viewee_random]) == nil)
-			IntervieweeSession.find_by_random(session[:viewee_random]).destroy
+			destroy
 			redirect_to('/disconnected')
 		else
 			config_opentok
