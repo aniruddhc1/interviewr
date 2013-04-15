@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	layout "new", :except => [:create, :show, :destroy]
 	def new
 		@session = Session.new
 	end

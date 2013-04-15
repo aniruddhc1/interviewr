@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>interviewr</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <embed wmode="transparent" id="background" name="plugin" src="/realmirror/mirror.swf" type="application/x-shockwave-flash">
+  <div id="content">
+    <%= yield %>
+  </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
 class IntervieweeSessionsController < ApplicationController
+	layout "new", :except => [:create, :show, :destroy]
 	def new
 		@random = params[:random]
 	end

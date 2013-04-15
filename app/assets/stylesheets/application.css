@@ -113,3 +113,10 @@ label.collection_check_boxes {
   height:100%;
   width:100%;
 }
+
+#background {
+z-index: 1;
+position:absolute;
+width: 100%;
+height: 100%;
+}
