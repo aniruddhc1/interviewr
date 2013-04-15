@@ -1,4 +1,8 @@
 class IntervieweeSessionsController < ApplicationController
+	def new
+		@random = params[:random]
+	end
+
 	def destroy
 		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
 		@interviewee_session.destroy if @interviewee_session != nil

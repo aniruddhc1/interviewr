@@ -11,7 +11,8 @@ Interviewr::Application.routes.draw do
   match 'busy' => 'static#busy', :as => :busy
   match 'no_session' => 'static#no_session', :as => :no_session
   match 'disconnected' => 'static#disconnected', :as => :disconnected
-  match ':random' => 'interviewee_sessions#create', :as => :new_interviewee_session
+  match ':random' => 'interviewee_sessions#new', :as => :new_interviewee_session
+  match 'sess/:random' => 'interviewee_sessions#create', :as => :link_session
   match 'sessions' => 'static#no_session'
   match 'sessions/:foo' => 'static#no_session'
 
