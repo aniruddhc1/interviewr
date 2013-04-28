@@ -1,5 +1,7 @@
+<div id="videos">
         <div id="myPublisherDiv"></div>
         <div id="otherUser"></div>
+</div>
         <script type="text/javascript">
           // Initialize API key, session, and token...
           // Think of a session as a room, and a token as the key to get in to the room
@@ -19,6 +21,12 @@ session.connect(apiKey, token);
 function sessionConnectedHandler(event) {
   var publisher = TB.initPublisher(apiKey, 'myPublisherDiv');
   session.publish(publisher);
+  var pub = document.getElementById(publisher.id);
+  pub.style.width = "100px";
+  pub.style.height = "100px";
+  pub.style.position = "absolute";
+  pub.style.z-index = "2";
+  
 
   // Subscribe to streams that were in the session when we connected
   subscribeToStreams(event.streams);
@@ -37,7 +45,12 @@ function subscribeToStreams(streams) {
     }
 
     // Subscribe to the stream
-    session.subscribe(streams[i], "otherUser");
+    var oUser =session.subscribe(streams[i], "otherUser");
+    var user = document.getElementById(oUser.id);
+    user.style.width = "300px";
+    user.style.height = "300px";
+    user.style.position = "absolute";
+    user.style.z-index = "1";
   }
 }
         </script>

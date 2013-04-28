@@ -32,12 +32,13 @@ class SessionsController < ApplicationController
 		@session = Session.find_by_random(session[:random])
 		config_opentok
 		@token = @opentok.generate_token :session_id => @session.room.openTokID
-	end
+	end 
 
 	def destroy
 		@session = Session.find_by_random(session[:random])
 		session[:random] = nil
 		@session.destroy
+		redirect_to('/', :notice => 'The interview has ended.  Start another?')
 	end
 
 	private

@@ -39,8 +39,6 @@ module Interviewr
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.filepicker_rails.api_key = "ALmxiFCURuOqErBdwCRgkz"
-
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true

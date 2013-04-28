@@ -1,13 +1,11 @@
-    filepicker.setKey("AIRdLdHSEQw2Ft9fOjLG7z");
+filepicker.setKey("AIRdLdHSEQw2Ft9fOjLG7z");
 
 //Notepad
 var curr_file;
 $(".notepad-open").click(function(){
+   console.log("what")
    filepicker.pick({mimetype:'text/plain', service:'DROPBOX'}, function(fpfile){
       curr_file = fpfile;
-      $(".notepad-title").text(fpfile.filename);
-      $(".notepad-reload").removeClass("disabled");
-      $("#notepad").val("Loading...").attr("disabled", "disabled");
       filepicker.read(curr_file, function(contents){
          firepad.setText(contents);
       });
