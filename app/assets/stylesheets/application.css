@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+ body{
+    background-image: url('/assets/escheresque_ste.png');
+ }
+
  #settings{
 	width:525px;
 	height:250px;
@@ -26,6 +31,8 @@
   -webkit-box-shadow: 7px 7px 30px rgba(50, 50, 148, 0.75);
   -moz-box-shadow:    7px 7px 30px rgba(50, 50, 148, 0.75);
   box-shadow:         7px 7px 30px rgba(50, 50, 148, 0.75);
+  opacity:0.7;
+  font-family: 'Electrolize', sans-serif;
  }
 
  #settings-container{
@@ -35,6 +42,14 @@
  	left: 0;
 	width: 100%;
  }
+
+#settings .btn-primary{
+    font-family: 'Electrolize', sans-serif;
+}
+
+#settings h2{
+  font-size: 20px
+}
 
 .simple_form div.input {
   margin-bottom: 10px;
@@ -105,13 +120,15 @@ label.collection_check_boxes {
 
 #messagesDiv{
   height : 200px;
-  border:5px solid red;
+  background-color: rgba(255, 255, 255, 0.6);
   overflow-y : auto;
+  margin-bottom: 5px;
 }
 
 #firepad{
   height:100%;
   width:100%;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 #background {
