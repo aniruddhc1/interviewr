@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	end
 	def create
 		if (session[:viewee_random] != nil)
-			redirect_to('/interviewee', :notice => 'You are already participating in an interview.')
+			redirect_to('/interviewee', :alert => 'You are already participating in an interview.')
 			return
 		end
 

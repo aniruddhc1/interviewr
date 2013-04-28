@@ -43,13 +43,18 @@
   </div>
 </div>
 <% end %>
-
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+<% end %>
 	<div id="container" class ="container">
 		<div id="Session" class="row">
 		</div>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
+
     <!--div class="span-12"-->
       <%= yield %>
     <!--/div-->
