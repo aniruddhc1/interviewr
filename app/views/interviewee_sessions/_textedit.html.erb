@@ -5,7 +5,7 @@
   <script type="text/javascript">
   var curr_file;
 $(".notepad-open").click(function(){
-   filepicker.pick({mimetype:'text/plain', service:'DROPBOX'}, function(fpfile){
+   filepicker.pick({}, function(fpfile){
       curr_file = fpfile;
       $(".notepad-title").text(fpfile.filename);
       $(".notepad-reload").removeClass("disabled");
