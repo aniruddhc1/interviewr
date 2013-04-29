@@ -148,3 +148,8 @@ label.collection_check_boxes {
 #langDrop{
   float:right;
 }
+
+#messageInput{
+  width: 295px;
+  height: 45px;
+}
