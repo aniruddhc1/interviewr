@@ -50,7 +50,9 @@
   </div>
 </div>
 <% end %>
-<% flash.each do |name, msg| %>
+
+	<div id="container" class ="container">
+    <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
       <a class="close" data-dismiss="alert">&#215;</a>
@@ -58,7 +60,6 @@
     </div>
   <% end %>
 <% end %>
-	<div id="container" class ="container">
 		<div id="Session" class="row">
 		</div>
 
