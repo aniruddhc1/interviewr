@@ -1,7 +1,14 @@
 <select name="Language" id="langDrop">
-  <option value = "clike">C/C++</option>
-  <option value = 'python'>Python</option>
-  <option value = "javascript">JavaScript</option>
+  <option value = "text/x-csrc">C</option>
+  <option value = "text/x-c++src">C++</option>
+  <option value = "text/x-java">Java</option>
+  <option value = "text/javascript">JavaScript</option>
+  <option value = "text/x-ocaml">OCaml</option>
+  <option value = 'text/x-python'>Python</option>
+  <option value = 'text/x-scala'>Scala</option>
+  <option value = "text/x-ruby">Ruby</option>
+  <option value = 'text/x-sql'>SQL</option>
+
 </select>  
 
 <script>
@@ -18,9 +25,15 @@
     {
       $("#langDrop").val(snapshot.val().lang);
       codeMirror.setOption("mode", $("#langDrop").val());
-      if ($("#langDrop").val() == "clike") extension = "c";
-      if ($("#langDrop").val() == "python") extension = "py";
-      if ($("#langDrop").val() == "javascript") extension = "js";
+      if ($("#langDrop").val() == "text/x-csrc") extension = "c";
+      if ($("#langDrop").val() == "text/x-java") extension = "java";
+      if ($("#langDrop").val() == "text/x-javascript") extension = "js";
+      if ($("#langDrop").val() == "text/x-ocaml") extension = "ocaml";
+      if ($("#langDrop").val() == "text/x-python") extension = "py";
+      if ($("#langDrop").val() == "text/x-scala") extension = "scala";
+      if ($("#langDrop").val() == "text/x-c++src") extension = "cpp";
+      if ($("#langDrop").val() == "text/x-ruby") extension = "rb";
+      if ($("#langDrop").val() == "text/x-sql") extension = "sql";
     }
   });
 </script>

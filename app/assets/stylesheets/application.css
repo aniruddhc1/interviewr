@@ -121,6 +121,7 @@ label.collection_check_boxes {
 #messagesDiv{
   height : 400px;
   width:300px;
+  padding:4px;
   background-color: rgba(255, 255, 255, 0.6);
   overflow-y : auto;
   margin-bottom: 5px;
@@ -130,6 +131,7 @@ label.collection_check_boxes {
 #videos{
   height:200px;
   width:300px;
+  background-color: #000;
 }
 #myPublisherDiv{
   position: absolute;
