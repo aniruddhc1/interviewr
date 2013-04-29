@@ -26,7 +26,7 @@ function sessionConnectedHandler(event) {
   session.publish(publisher);
   var pub = document.getElementById(publisher.id);
   pub.style.width = "100px";
-  pub.style.height = "100px";
+  pub.style.height = "66px";
   pub.style.position = "absolute";
   pub.style.z-index = "2";
   
@@ -51,7 +51,7 @@ function subscribeToStreams(streams) {
     var oUser =session.subscribe(streams[i], "otherUser");
     var user = document.getElementById(oUser.id);
     user.style.width = "300px";
-    user.style.height = "300px";
+    user.style.height = "200px";
     user.style.position = "absolute";
     user.style.z-index = "1";
   }

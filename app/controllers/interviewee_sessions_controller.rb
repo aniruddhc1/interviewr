@@ -6,6 +6,7 @@ class IntervieweeSessionsController < ApplicationController
 			flash[:alert] = "You have tried to connect to an interview that doesn't exist. Create a new one?"
 			redirect_to('/')
 		end
+		@interviewee_session = IntervieweeSession.new
 	end
 
 	def destroy
@@ -22,9 +23,8 @@ class IntervieweeSessionsController < ApplicationController
 			return
 		end
 
-		random = params[:random]
-		@interviewee_session = IntervieweeSession.new
-		@interviewee_session.random = random
+		@interviewee_session = IntervieweeSession.new(params[:interviewee_session])
+		random = @interviewee_session.random
 
 		if @interviewee_session.save
 			session[:viewee_random] = random

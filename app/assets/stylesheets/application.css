@@ -119,21 +119,17 @@ label.collection_check_boxes {
 }
 
 #messagesDiv{
-  height : 200px;
+  height : 400px;
   width:300px;
   background-color: rgba(255, 255, 255, 0.6);
   overflow-y : auto;
   margin-bottom: 5px;
 }
 
-#firepad{
-  height:100%;
-  width:100%;
-  background-color: rgba(255, 255, 255, 0.6);
-}
+
 #videos{
-  height:305px;
-  width:305px;
+  height:200px;
+  width:300px;
 }
 #myPublisherDiv{
   position: absolute;
@@ -142,4 +138,11 @@ label.collection_check_boxes {
 #otherUser{
   position: absolute;
   z-index:1;
+}
+.btn-group{
+  margin-bottom: 10px;
+}
+
+#langDrop{
+  float:right;
 }

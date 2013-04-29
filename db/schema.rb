@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130412212609) do
 
   create_table "interviewee_sessions", :force => true do |t|
     t.string   "random"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

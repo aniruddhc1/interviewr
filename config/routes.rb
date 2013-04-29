@@ -3,6 +3,7 @@ Interviewr::Application.routes.draw do
   # first created -> highest priority.
 
   resources :sessions
+  resources :interviewee_sessions
 
   match 'end' => 'sessions#destroy', :as => :end
   match 'done' => 'interviewee_sessions#destroy', :as => :done

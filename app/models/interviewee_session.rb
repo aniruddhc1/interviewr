@@ -1,5 +1,5 @@
 class IntervieweeSession < ActiveRecord::Base
-  attr_accessible :random
+  attr_accessible :random, :name
   has_one :room
   validate :session_is_in_system
   validates_uniqueness_of :random

@@ -2,6 +2,14 @@
 	<div id="settings">
 <h1>You are interviewing with <%= @session.interviewer %> from <%= @session.company %>.</h1>
 <h2>Good luck!</h2>
-<%= link_to "Continue", link_session_path(@random), :class => "btn btn-mini" %>
+	<%= simple_form_for(@interviewee_session, :html => { :class => 'form-horizontal' }) do |f| %>
+	  <%= f.input :name, label: "your name" %>
+	  <%= f.input :random, :as => :hidden, :input_html => { :value => @random } %>
+	  <div class="form-actions">
+	    <%= f.button :submit, "connect", :class => 'btn btn-primary' %>
+	  </div>
+
+
+	<% end %>
 	</div>
 </div>
