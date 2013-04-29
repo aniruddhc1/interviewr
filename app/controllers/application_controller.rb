@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :config_opentok
 
-  private
   def current_viewer_session
     @current_viewer_session ||= Session.find_by_random(session[:random]) if session[:random]
   end

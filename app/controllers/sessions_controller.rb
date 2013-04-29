@@ -1,5 +1,11 @@
 class SessionsController < ApplicationController
 	def new
+		if interviewer?
+			redirect_to('/interviewee', :alert => 'You still have a session going on.')
+		end
+		if interviewee?
+			redirect_to('/interviewee', :alert => 'You are already participating in an interview.')
+		end
 		@session = Session.new
 	end
 	def create

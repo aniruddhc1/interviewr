@@ -1,10 +1,3 @@
-<% if interviewer? %>
-	You still have a session going on
-	<%= link_to "here.", '/interviewer' %>
-<% elsif interviewee? %>
-	You still have a session going on
-	<%= link_to "here.", '/interviewee' %>
-<% else %>
 <div id="settings-container">
 	<div id="settings">
 
@@ -13,4 +6,3 @@
 			<%= render 'form' %>
 	</div>
 </div>
-<% end %>
