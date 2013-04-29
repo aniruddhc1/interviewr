@@ -1,0 +1,10 @@
+<div id="settings-container">
+	<div id="settings">
+		<% if @session != nil %>
+			<h1>Thank you for interviewing with <%= @session.interviewer %> from <%= @session.company %>.</h1>
+		<% else %>
+			<h1>Thank you for interviewing.</h1>
+		<% end %>
+		<h2>Have a nice day.</h2>
+	</div>
+</div>

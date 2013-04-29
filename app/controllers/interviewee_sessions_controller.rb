@@ -1,18 +1,24 @@
 class IntervieweeSessionsController < ApplicationController
-	layout "new", :except => [:create, :show, :destroy]
 	def new
 		@random = params[:random]
+		@session = Session.find_by_random(@random)
+		if (@session == nil)
+			flash[:alert] = "You have tried to connect to an interview that doesn't exist. Create a new one?"
+			redirect_to('/')
+		end
 	end
 
 	def destroy
 		@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
+		@session = Session.find_by_random(session[:viewee_random])
 		@interviewee_session.destroy if @interviewee_session != nil
 		session[:viewee_random] = nil
 	end
 
 	def create
 		if (session[:random] != nil)
-			redirect_to('/interviewer', :notice => 'You are already hosting an interview.')
+			flash[:alert] = "You are already hosting an interview."
+			redirect_to('/interviewer')
 			return
 		end
 
@@ -29,9 +35,11 @@ class IntervieweeSessionsController < ApplicationController
 		else
 			destroy
 			if (Session.find_by_random(random) == nil)
-				redirect_to('/no_session')
+				flash[:alert] = "You have tried to connect to an interview that doesn't exist. Create a new one?"
+				redirect_to('/')
 			else
-      			redirect_to('/busy')
+				flash[:alert] = "You have tried to connect to an interview someone already connected to. Create a new one?"
+      			redirect_to('/')
       		end
 		end
 
