@@ -48,7 +48,13 @@ class IntervieweeSessionsController < ApplicationController
 	def show
 		if (Session.find_by_random(session[:viewee_random]) == nil)
 			destroy
-			redirect_to('/disconnected')
+			if (session[:random] != nil)
+				flash[:alert] = "You are already hosting an interview."
+				redirect_to('/interviewer')
+			else
+				flash[:alert] = "You have been disconnected."
+				redirect_to('/')
+			end
 		else
 			config_opentok
 			@interviewee_session = IntervieweeSession.find_by_random(session[:viewee_random])
