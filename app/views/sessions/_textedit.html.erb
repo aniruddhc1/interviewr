@@ -1,3 +1,8 @@
+  <div class="btn-group">
+    <button class="btn notepad-open">Open File</button>
+    <button class="btn notepad-save">Save Code</button>
+  </div>
+
 <div id="firepad"></div>
 
   <script>
@@ -7,7 +12,7 @@
     firepadRef.push();
 
     //// Create CodeMirror (with lineWrapping on).
-    var codeMirror = CodeMirror(document.getElementById('firepad'), { 
+    var codeMirror = CodeMirror(document.getElementById('firepad'), {
       lineNumbers: true,
       mode: 'javascript'
     });
@@ -24,7 +29,7 @@
     */
 
     //// Initialize contents.
-    
+
     /* firepad.on('ready', function() {
       if (firepad.isHistoryEmpty()) {
         firepad.setText('// Check out the user list to the left!');
