@@ -6,7 +6,7 @@
 
 <script>
   var langRef = new Firebase("https://interviewr.firebaseio.com/<%= @interviewee_session.random + 'lang'%>");
-
+  var extension = "c"
   $("#langDrop").change (function () {
     var newSyntax = $("#langDrop option:selected").val();
     langRef.set({"lang": newSyntax});

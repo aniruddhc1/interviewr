@@ -17,24 +17,17 @@ $(".notepad-open").click(function(){
 });
 $(".notepad-save").click(function(){
   var btext = $(this).children("span");
-  if (curr_file) {
-    btext.text("Saving...");
-    filepicker.write(curr_file, firepad.getText(), function(){
-        btext.text("Saved");
-    });
-  } else {
-    btext.text("Saving...");
-    filepicker.store(firepad.getText(),
-        {filename:'filepicker_note.txt', location: 'S3'},
-        function(stored_file){
-            filepicker.export(stored_file, {service:'DROPBOX'}, function(fpfile) {
-                $(".notepad-title").text(fpfile.filename);
-                btext.text("Saved");
-                curr_file = fpfile;
-            }
-        );
-    });
-  }
+  btext.text("Saving...");
+  filepicker.store(firepad.getText(),
+      {filename:'interviewr.' + extension, location: 'S3'},
+      function(stored_file){
+          filepicker.export(stored_file, {mimetype: 'plain-text/*'}, function(fpfile) {
+              $(".notepad-title").text(fpfile.filename);
+              btext.text("Saved");
+              curr_file = fpfile;
+          }
+      );
+  });
 });
   </script>
 

@@ -7,7 +7,7 @@
 <script>
   var langRef = new Firebase("https://interviewr.firebaseio.com/<%= @session.random + 'lang'%>");
   langRef.push()
-
+  var extension = "c"
   $("#langDrop").change (function () {
     var newSyntax = $("#langDrop option:selected").val();
     langRef.set({"lang": newSyntax});
@@ -18,6 +18,9 @@
     {
       $("#langDrop").val(snapshot.val().lang);
       codeMirror.setOption("mode", $("#langDrop").val());
+      if ($("#langDrop").val() == "clike") extension = "c";
+      if ($("#langDrop").val() == "python") extension = "py";
+      if ($("#langDrop").val() == "javascript") extension = "js";
     }
   });
 </script>
